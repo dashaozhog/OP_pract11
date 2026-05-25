@@ -117,9 +117,67 @@ public class Building : IDamagable
 
 interface ITransport
 {
-    int Speed {  get; set; }
-
+    
     void Move();
 }
 
+
+public class Car: ITransport
+{   int Speed {  get; set; }
+
+    public Car(int speed)
+    {
+        Speed = speed;
+    }
+
+    public void Move()
+    {
+        Console.WriteLine($"YA SSKOROST' VRUUMMMM {Speed} KM/H!!");
+    }
+}
+
+public class Bicycle : ITransport
+{
+    int Speed { get; set; }
+
+    public Bicycle(int speed)
+    {
+        Speed = speed;
+    }
+
+    public void Move()
+    {
+        Console.WriteLine($"Kruchu pedali na skorosti {Speed} KM/H!!");
+    }
+}
+
+public class Boat : ITransport
+{
+    int Speed { get; set; }
+
+    public Boat(int speed)
+    {
+        Speed = speed;
+    }
+
+    public void Move()
+    {
+        Console.WriteLine($"Bulp bulp vzhuuhhhh na lodke {Speed} KM/H!!");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        ITransport car = new Car(169);
+        car.Move();
+
+        ITransport bisysle = new Bicycle(40);
+        bisysle.Move();
+
+        ITransport boat = new Boat(99);
+        boat.Move();
+    }
+}
 
